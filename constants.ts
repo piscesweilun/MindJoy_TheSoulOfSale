@@ -24,7 +24,7 @@ export const ART_PIECES: ArtPiece[] = [
         description: '65-75高資產客戶，對接遺產稅規劃',
         price: '1,498 P',
         image: legacyNotTaxesImg,
-        videoId: 'k3KzHAXdv4o',
+        videoId: '4O-3C9b8bIg',
         narrativePhilosophy: '針對高資產客戶最現實的「遺產稅流動性」問題。我們不談空泛的傳承，而是直擊核心：如何避免家人在面臨鉅額稅金時，被迫低價折讓資產或變賣家產。保險在這裡是為了「預留稅源」，確保資產的完整性。',
         scriptPreview: '「奮鬥一輩子留下的江山，不該讓國稅局成為您的第一順位繼承人。」',
         usageScenario: '適合在討論資產總額、試算遺產稅負擔，或客戶擔心不動產比例過高時使用。',
