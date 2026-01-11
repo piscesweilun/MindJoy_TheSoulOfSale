@@ -31,7 +31,7 @@ export default function App() {
   };
 
   const handleVideoPlay = () => {
-    if (selectedPiece?.videoId) {
+    if (selectedPiece?.videoUrl) {
       setVideoModalOpen(true);
     }
   };
@@ -79,7 +79,7 @@ export default function App() {
 
       {videoModalOpen && selectedPiece && (
         <VideoModal 
-          videoId={selectedPiece.videoId} 
+          videoUrl={selectedPiece.videoUrl} 
           onClose={handleVideoClose} 
         />
       )}

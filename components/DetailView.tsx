@@ -177,10 +177,10 @@ export const DetailView: React.FC<DetailViewProps> = ({ piece, onClose, onPlay, 
                 <div className="flex items-center gap-6 mb-16 pb-8 border-b border-[var(--border-light)]">
                      <button 
                         onClick={onPlay} 
-                        disabled={!piece.videoId}
+                        disabled={!piece.videoUrl}
                         className="btn-elegant flex items-center justify-center gap-3 px-8"
                     >
-                        {piece.videoId ? <><Play fill="currentColor" size={14}/> Play Script</> : 'Unavailable'}
+                        {piece.videoUrl ? <><Play fill="currentColor" size={14}/> Play Script</> : 'Unavailable'}
                     </button>
                     <div className="flex flex-col cursor-pointer group" onClick={() => startEditing('price')}>
                         <span className="text-[10px] text-[var(--text-stone)] uppercase tracking-widest mb-1 flex items-center gap-1">

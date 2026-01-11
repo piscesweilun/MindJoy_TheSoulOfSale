@@ -5,7 +5,7 @@ export interface ArtPiece {
     description: string;
     price: string;
     image: string;
-    videoId?: string;
+    videoUrl?: string;
     narrativePhilosophy?: string;
     scriptPreview?: string;
     usageScenario?: string;

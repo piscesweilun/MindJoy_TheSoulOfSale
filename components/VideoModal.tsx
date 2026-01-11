@@ -2,12 +2,12 @@ import React from 'react';
 import { X } from 'lucide-react';
 
 interface VideoModalProps {
-  videoId?: string;
+  videoUrl?: string;
   onClose: () => void;
 }
 
-export const VideoModal: React.FC<VideoModalProps> = ({ videoId, onClose }) => {
-  if (!videoId) return null;
+export const VideoModal: React.FC<VideoModalProps> = ({ videoUrl, onClose }) => {
+  if (!videoUrl) return null;
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-[#1C1917]/90 backdrop-blur-md transition-all animate-fade-in p-4">
@@ -19,14 +19,17 @@ export const VideoModal: React.FC<VideoModalProps> = ({ videoId, onClose }) => {
         </button>
         
         <div className="w-full max-w-6xl aspect-video bg-black shadow-2xl relative">
-            <iframe 
-                className="w-full h-full" 
-                src={`https://www.youtube.com/embed/${videoId}?autoplay=1`} 
-                title="YouTube video player"
-                frameBorder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowFullScreen
-            ></iframe>
+            <video
+                className="w-full h-full"
+                src={videoUrl}
+                controls
+                controlsList="nodownload"
+                onContextMenu={(e) => e.preventDefault()}
+                disablePictureInPicture
+                autoPlay
+            >
+                Your browser does not support the video tag.
+            </video>
         </div>
     </div>
   );
