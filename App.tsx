@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Navbar } from './components/Navbar';
+import { LoginPage } from './components/LoginPage';
 import { Hero } from './components/Hero';
 import { Gallery } from './components/Gallery';
 import { DetailView } from './components/DetailView';
@@ -14,6 +15,8 @@ export default function App() {
   const [selectedPieceId, setSelectedPieceId] = useState<string | null>(null);
   const [videoModalOpen, setVideoModalOpen] = useState(false);
   const [credits, setCredits] = useState('Credits: 1,250 P');
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const selectedPiece = pieces.find(p => p.id === selectedPieceId) || null;
 
@@ -42,6 +45,10 @@ export default function App() {
       prevPieces.map(p => p.id === updatedPiece.id ? updatedPiece : p)
     );
   };
+
+  if (!isLoggedIn) {
+    return <LoginPage onLogin={() => setIsLoggedIn(true)} />;
+  }
 
   return (
     <div className="min-h-screen relative text-black">
