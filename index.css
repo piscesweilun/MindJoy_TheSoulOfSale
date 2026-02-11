@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    /* Elegant Cream Palette */
+    --bg-cream: #F9F7F2;
+    --surface-white: #FFFFFF;
+    
+    /* Text Tones */
+    --text-charcoal: #1C1917;
+    --text-stone: #57534E;
+    --text-gold: #9A8C59;
+    
+    /* Accents */
+    --accent-gold: #C6A664;
+    --accent-terracotta: #A85648;
+    
+    /* Structural */
+    --border-light: #E7E5E4;
+    --shadow-soft: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+body { 
+    background-color: var(--bg-cream);
+    color: var(--text-charcoal);
+    font-family: 'Noto Sans TC', sans-serif;
+    overflow-x: hidden;
+}
+
+.font-serif-display { font-family: 'Bodoni Moda', serif; }
+.font-google { font-family: 'Outfit', sans-serif; }
+
+/* Elegant Button */
+.btn-elegant {
+    background: var(--text-charcoal);
+    color: white;
+    padding: 0.75rem 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+    border: 1px solid var(--text-charcoal);
+}
+
+.btn-elegant:hover {
+    background: white;
+    color: var(--text-charcoal);
+}
+
+.btn-outline-elegant {
+    background: transparent;
+    border: 1px solid var(--text-charcoal);
+    color: var(--text-charcoal);
+    padding: 0.5rem 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-elegant:hover {
+    background: var(--text-charcoal);
+    color: white;
+}
+
+/* Inputs for Light Theme */
+input, textarea {
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 1px solid var(--border-light) !important;
+    color: var(--text-charcoal) !important;
+    border-radius: 0 !important;
+    transition: border-color 0.3s;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--accent-gold) !important;
+    background: rgba(255,255,255,0.5) !important;
+}
+
+::selection {
+    background: var(--accent-gold);
+    color: white;
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-pop-in {
+    animation: popIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes popIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
