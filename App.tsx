@@ -28,6 +28,29 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handleGalleryClick = () => {
+    if (view !== 'gallery') {
+      setView('gallery');
+      // Use setTimeout to allow re-render before scrolling
+      setTimeout(() => {
+        document.getElementById('gallery')?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    } else {
+      document.getElementById('gallery')?.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handlePhilosophyClick = () => {
+    if (view !== 'gallery') {
+      setView('gallery');
+      setTimeout(() => {
+        document.getElementById('philosophy')?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    } else {
+      document.getElementById('philosophy')?.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const handleVideoPlay = () => {
     if (selectedPiece?.videoUrl) {
       setVideoModalOpen(true);
@@ -49,6 +72,8 @@ export default function App() {
       <Background />
       <Navbar 
         onHomeClick={handleHomeClick} 
+        onGalleryClick={handleGalleryClick}
+        onPhilosophyClick={handlePhilosophyClick}
         credits={credits}
         onUpdateCredits={setCredits}
       />

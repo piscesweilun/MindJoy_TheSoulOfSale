@@ -2,11 +2,19 @@ import React, { useState } from 'react';
 
 interface NavbarProps {
   onHomeClick: () => void;
+  onGalleryClick: () => void;
+  onPhilosophyClick: () => void;
   credits: string;
   onUpdateCredits: (newCredits: string) => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onHomeClick, credits, onUpdateCredits }) => {
+export const Navbar: React.FC<NavbarProps> = ({ 
+  onHomeClick, 
+  onGalleryClick,
+  onPhilosophyClick,
+  credits, 
+  onUpdateCredits 
+}) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editValue, setEditValue] = useState(credits);
 
@@ -36,12 +44,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onHomeClick, credits, onUpdateCr
         </div>
         <div className="hidden md:flex items-center space-x-10 text-xs font-bold tracking-[0.2em] uppercase text-[var(--text-stone)]">
             <button 
-                onClick={onHomeClick} 
+                onClick={onGalleryClick} 
                 className="hover:text-[var(--text-gold)] transition duration-300"
             >
                 Gallery
             </button>
-            <button className="hover:text-[var(--text-gold)] transition duration-300">
+            <button 
+                onClick={onPhilosophyClick}
+                className="hover:text-[var(--text-gold)] transition duration-300"
+            >
                 Philosophy
             </button>
             <div 

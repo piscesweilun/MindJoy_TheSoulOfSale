@@ -2,7 +2,7 @@ import React from 'react';
 
 export const Hero: React.FC = () => {
   return (
-    <header className="pt-40 md:pt-52 pb-24 px-6 md:px-12 relative overflow-hidden z-10 max-w-7xl mx-auto">
+    <header id="philosophy" className="pt-40 md:pt-52 pb-24 px-6 md:px-12 relative overflow-hidden z-10 max-w-7xl mx-auto">
         <h1 className="text-6xl md:text-8xl lg:text-9xl font-google font-medium leading-[1.1] text-[var(--text-charcoal)] mb-12">
             The <span className="italic text-[var(--accent-gold)]">Soul</span> <br />
             of Sale.
