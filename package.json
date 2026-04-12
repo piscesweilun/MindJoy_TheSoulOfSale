@@ -1,5 +1,5 @@
 {
-  "name": "copy-of-copy-of-mindjoy-art-gallery",
+  "name": "mindjoy-portal",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -8,7 +8,9 @@
     "build": "vite build",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "clean": "rm -rf node_modules package-lock.json dist .vite",
+    "reinstall": "npm run clean && npm install"
   },
   "dependencies": {
     "lucide-react": "^0.562.0",
