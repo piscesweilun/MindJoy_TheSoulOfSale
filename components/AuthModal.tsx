@@ -128,7 +128,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ onClose, onSuccess, initia
                 value={form.password}
                 onChange={handleChange}
                 required
-                minLength={6}
+                minLength={mode === 'register' ? 6 : undefined}
                 placeholder={mode === 'register' ? '至少 6 個字元' : ''}
                 className="w-full pb-2 pr-10"
               />
