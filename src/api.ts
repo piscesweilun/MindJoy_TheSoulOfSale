@@ -83,23 +83,37 @@ export async function apiGetPackages(): Promise<CreditPackage[]> {
 
 /**
  * 發起付款流程：後端回傳 HTML form，直接 inject 到頁面 body 並自動提交
+ * （若 simulate=true，則回傳 JSON 包含訂單號，用於模擬測試）
  */
-export async function apiCreatePayment(packageId: string) {
+export async function apiCreatePayment(packageId: string, simulate = false) {
   const res = await fetch(`${API_BASE}/payment/create`, {
     method: 'POST',
     credentials: 'include',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ package_id: packageId }),
+    body: JSON.stringify({ package_id: packageId, simulate }),
   });
   if (!res.ok) {
     const err = await res.json().catch(() => ({}));
     throw new Error(err.error ?? '付款發起失敗');
   }
+
+  if (simulate) {
+    const data = await res.json();
+    return data; // { success: true, order_no: '...' }
+  }
+
   // Inject & auto-submit the NewebPay form
   const html = await res.text();
   const div = document.createElement('div');
   div.innerHTML = html;
   document.body.appendChild(div);
+}
+
+export async function apiSimulatePaymentSuccess(orderNo: string) {
+  return apiFetch('/payment/simulate_success', {
+    method: 'POST',
+    body: JSON.stringify({ order_no: orderNo }),
+  });
 }
 
 export async function apiGetPaymentHistory(): Promise<Transaction[]> {
