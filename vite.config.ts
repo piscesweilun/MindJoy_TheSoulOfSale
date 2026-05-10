@@ -19,6 +19,14 @@ export default defineConfig(({ mode }) => {
             target: env.VITE_API_BASE ?? 'http://localhost:5001',
             changeOrigin: true,
           },
+          '/subscriber': {
+            target: env.VITE_API_BASE ?? 'http://localhost:5001',
+            changeOrigin: true,
+          },
+          '/admin': {
+            target: env.VITE_API_BASE ?? 'http://localhost:5001',
+            changeOrigin: true,
+          },
         },
       },
       plugins: [react()],
